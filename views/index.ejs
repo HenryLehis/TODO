@@ -13,10 +13,15 @@
     </div>
 
     <div class="box">
-        <div class="item">
-            <input type="checkbox">
-            <p>test</p>
-        </div>
+        <% for(let i = 0; i < toDoItems.length; i++) { %>
+            <form action="/delete" method="POST">
+            <div class="item">
+            <input name="checkbox" value="<%= toDoItems[i].description %>" type="checkbox" onchange="this.form.submit()">
+            <p><%= toDoItems[i].description %></p>
+    </div>
+            </form>
+        
+        <% } %>
 
         <form action="/" method="POST">
             <input type="text" name="newTask" placeholder="Add New Task">
@@ -25,7 +30,7 @@
     </div>
 
     <footer>
-        <span>JV &#169 2021</span>
+        <span>B000tz &#169 2021</span>
     </footer>
     
 </body>
